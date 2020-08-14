@@ -62,11 +62,7 @@ def reverse(d):
 def path(roomID,cameFrom = None):
     stack = Stack()
     for direction in player.current_room.get_exits():
-        #if player.current_room.get_room_in_direction(direction).id not in visited:
-        if cameFrom != None:
-            if player.current_room.get_room_in_direction(direction).id != player.current_room.get_room_in_direction(reverse(cameFrom)).id:
-                stack.push(direction)
-        else:
+        if player.current_room.get_room_in_direction(direction).id not in visited:
             stack.push(direction)
 
     if player.current_room.id not in visited:
